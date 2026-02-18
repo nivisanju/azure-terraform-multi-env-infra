@@ -1,0 +1,26 @@
+# Terraform
+.terraform/
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+.terraform.lock.hcl
+
+# Variables (keep secrets out of git)
+*.tfvars.json
+
+# SSH keys (recommended: never commit)
+terraform/ssh/
+**/ssh/
+
+# OS
+.DS_Store
+
+
+# Terraform
+.terraform/
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
