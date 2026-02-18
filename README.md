@@ -76,6 +76,8 @@ Comprehensive documentation is available in the `docs/` directory:
 - **[STATE.md](docs/STATE.md)** - Remote state management and backend configuration
 - **[MODULES.md](docs/MODULES.md)** - Module documentation and usage examples
 - **[ENVIRONMENT_STRATEGY.md](docs/ENVIRONMENT_STRATEGY.md)** - Resource Groups vs Subscriptions strategy
+- **[OUTPUTS_GUIDE.md](docs/OUTPUTS_GUIDE.md)** - What outputs are useful and why
+- **[REQUIREMENTS_ASSESSMENT.md](docs/REQUIREMENTS_ASSESSMENT.md)** - Requirements compliance assessment
 - **[TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** - Common issues and solutions
 
 ## 🔄 CI/CD Pipeline
@@ -133,3 +135,13 @@ See [docs/MODULES.md](docs/MODULES.md) for detailed module documentation.
 ## 📝 License
 
 [Add your license information here]
+## 📝 Output
+**1. App Registration**
+<img width="1674" height="382" alt="image" src="https://github.com/user-attachments/assets/
+08109997-a0da-4f27-9884-caab76f5e621" />
+**2. Statefile Storage Account**
+<img width="2876" height="1052" alt="image" src="https://github.com/user-attachments/assets/
+f37027fb-d3ee-470a-9d3f-7a4c484e9886" />
+**3. Resources in Azure portal**
+<img width="2882" height="1216" alt="image" src="https://github.com/user-attachments/assets/b52daf6e-3ecb-4b03-8aa1-6b6dcf9ee2f5" />
+
