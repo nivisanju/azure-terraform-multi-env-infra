@@ -45,11 +45,11 @@ variable "create_route_tables" {
 variable "subnets" {
   description = "Subnet definitions (supports optional NSG rules, service endpoints, delegation, and routes)"
   type = list(object({
-    name              = string
-    address_prefixes  = list(string)
+    name             = string
+    address_prefixes = list(string)
 
-    private_endpoint_network_policies_enabled       = optional(bool, true)
-    private_link_service_network_policies_enabled   = optional(bool, false)
+    private_endpoint_network_policies_enabled     = optional(bool, true)
+    private_link_service_network_policies_enabled = optional(bool, false)
 
     service_endpoints           = optional(list(string), [])
     service_endpoint_policy_ids = optional(list(string), [])
@@ -63,20 +63,20 @@ variable "subnets" {
     }), null)
 
     nsg_rules = optional(list(object({
-      name                       = string
-      priority                   = number
-      direction                  = string
-      access                     = string
-      protocol                   = string
-      source_port_range          = optional(string)
-      source_port_ranges         = optional(list(string))
-      destination_port_range     = optional(string)
-      destination_port_ranges    = optional(list(string))
-      source_address_prefix      = optional(string)
-      source_address_prefixes    = optional(list(string))
-      destination_address_prefix = optional(string)
+      name                         = string
+      priority                     = number
+      direction                    = string
+      access                       = string
+      protocol                     = string
+      source_port_range            = optional(string)
+      source_port_ranges           = optional(list(string))
+      destination_port_range       = optional(string)
+      destination_port_ranges      = optional(list(string))
+      source_address_prefix        = optional(string)
+      source_address_prefixes      = optional(list(string))
+      destination_address_prefix   = optional(string)
       destination_address_prefixes = optional(list(string))
-      description                = optional(string)
+      description                  = optional(string)
     })), null)
 
     route_table_routes = optional(list(object({

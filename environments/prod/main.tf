@@ -7,16 +7,16 @@ resource "azurerm_resource_group" "this" {
 module "vnet" {
   source = "../../modules/vnet"
 
-  resource_group_name     = azurerm_resource_group.this.name
-  location                = var.location
-  vnet_name               = "vnet-${local.name_prefix}-hub-01"
-  address_space           = var.vnet_address_space
-  enable_ddos_protection  = true
-  create_nsgs             = true
-  create_route_tables     = false
-  dns_servers             = []
-  subnets                 = var.subnets
-  tags                    = local.tags
+  resource_group_name    = azurerm_resource_group.this.name
+  location               = var.location
+  vnet_name              = "vnet-${local.name_prefix}-hub-01"
+  address_space          = var.vnet_address_space
+  enable_ddos_protection = true
+  create_nsgs            = true
+  create_route_tables    = false
+  dns_servers            = []
+  subnets                = var.subnets
+  tags                   = local.tags
 }
 
 resource "random_string" "storage_suffix" {
@@ -26,15 +26,15 @@ resource "random_string" "storage_suffix" {
 }
 
 resource "azurerm_storage_account" "this" {
-  name                     = "st${replace(var.project, "-", "")}${local.env}${random_string.storage_suffix.result}"
-  resource_group_name      = azurerm_resource_group.this.name
-  location                 = var.location
-  account_tier             = var.storage_account_tier
-  account_replication_type = var.storage_replication_type
-  account_kind             = "StorageV2"
-  min_tls_version          = "TLS1_2"
+  name                            = "st${replace(var.project, "-", "")}${local.env}${random_string.storage_suffix.result}"
+  resource_group_name             = azurerm_resource_group.this.name
+  location                        = var.location
+  account_tier                    = var.storage_account_tier
+  account_replication_type        = var.storage_replication_type
+  account_kind                    = "StorageV2"
+  min_tls_version                 = "TLS1_2"
   allow_nested_items_to_be_public = false
-  tags                     = merge(local.tags, { Purpose = "Storage" })
+  tags                            = merge(local.tags, { Purpose = "Storage" })
 }
 
 resource "azurerm_storage_container" "this" {
@@ -67,11 +67,11 @@ resource "azurerm_network_interface" "vm" {
 }
 
 resource "azurerm_linux_virtual_machine" "this" {
-  name                = "vm-${local.name_prefix}-01"
-  location            = var.location
-  resource_group_name = azurerm_resource_group.this.name
-  size                = var.vm_size
-  admin_username      = var.vm_admin_username
+  name                  = "vm-${local.name_prefix}-01"
+  location              = var.location
+  resource_group_name   = azurerm_resource_group.this.name
+  size                  = var.vm_size
+  admin_username        = var.vm_admin_username
   network_interface_ids = [azurerm_network_interface.vm.id]
 
   admin_ssh_key {

@@ -47,21 +47,21 @@ resource "azurerm_network_security_group" "this" {
   dynamic "security_rule" {
     for_each = each.value.nsg_rules != null ? each.value.nsg_rules : []
     content {
-      name                       = security_rule.value.name
-      priority                   = security_rule.value.priority
-      direction                  = security_rule.value.direction
-      access                     = security_rule.value.access
-      protocol                   = security_rule.value.protocol
+      name      = security_rule.value.name
+      priority  = security_rule.value.priority
+      direction = security_rule.value.direction
+      access    = security_rule.value.access
+      protocol  = security_rule.value.protocol
 
-      source_port_range          = try(security_rule.value.source_port_range, null)
-      source_port_ranges         = try(security_rule.value.source_port_ranges, null)
-      destination_port_range     = try(security_rule.value.destination_port_range, null)
-      destination_port_ranges    = try(security_rule.value.destination_port_ranges, null)
-      source_address_prefix      = try(security_rule.value.source_address_prefix, null)
-      source_address_prefixes    = try(security_rule.value.source_address_prefixes, null)
-      destination_address_prefix = try(security_rule.value.destination_address_prefix, null)
+      source_port_range            = try(security_rule.value.source_port_range, null)
+      source_port_ranges           = try(security_rule.value.source_port_ranges, null)
+      destination_port_range       = try(security_rule.value.destination_port_range, null)
+      destination_port_ranges      = try(security_rule.value.destination_port_ranges, null)
+      source_address_prefix        = try(security_rule.value.source_address_prefix, null)
+      source_address_prefixes      = try(security_rule.value.source_address_prefixes, null)
+      destination_address_prefix   = try(security_rule.value.destination_address_prefix, null)
       destination_address_prefixes = try(security_rule.value.destination_address_prefixes, null)
-      description                = try(security_rule.value.description, null)
+      description                  = try(security_rule.value.description, null)
     }
   }
 }
@@ -75,7 +75,7 @@ resource "azurerm_route_table" "this" {
   name                          = "rt-${each.key}"
   location                      = var.location
   resource_group_name           = var.resource_group_name
-  disable_bgp_route_propagation = try(each.value.route_table_disable_bgp, false)
+  bgp_route_propagation_enabled = !try(each.value.route_table_disable_bgp, false)
   tags                          = merge(var.tags, { Subnet = each.key, Purpose = "RouteTable" })
 
   dynamic "route" {
@@ -97,7 +97,7 @@ resource "azurerm_subnet" "this" {
   virtual_network_name = azurerm_virtual_network.this.name
   address_prefixes     = each.value.address_prefixes
 
-  private_endpoint_network_policies_enabled     = try(each.value.private_endpoint_network_policies_enabled, true)
+  private_endpoint_network_policies             = try(each.value.private_endpoint_network_policies_enabled, true) ? "Enabled" : "Disabled"
   private_link_service_network_policies_enabled = try(each.value.private_link_service_network_policies_enabled, false)
 
   service_endpoints           = try(each.value.service_endpoints, [])

@@ -22,13 +22,13 @@ resource "random_string" "suffix" {
 }
 
 resource "azurerm_storage_account" "this" {
-  name                     = "st${replace(var.project, "-", "")}${var.env}${random_string.suffix.result}"
-  resource_group_name      = var.resource_group_name
-  location                 = var.location
-  account_tier             = var.account_tier
-  account_replication_type = var.replication_type
-  account_kind             = "StorageV2"
-  min_tls_version          = "TLS1_2"
+  name                            = "st${replace(var.project, "-", "")}${var.env}${random_string.suffix.result}"
+  resource_group_name             = var.resource_group_name
+  location                        = var.location
+  account_tier                    = var.account_tier
+  account_replication_type        = var.replication_type
+  account_kind                    = "StorageV2"
+  min_tls_version                 = "TLS1_2"
   allow_nested_items_to_be_public = false
 
   tags = merge(var.tags, {

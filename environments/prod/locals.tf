@@ -1,9 +1,9 @@
 locals {
-  env          = "prod"
-  region       = var.location
-  region_abbr  = substr(var.location, 0, 3)
+  env         = "prod"
+  region      = var.location
+  region_abbr = substr(var.location, 0, 3)
 
-  name_prefix  = "${local.env}-${local.region_abbr}"
+  name_prefix = "${local.env}-${local.region_abbr}"
 
   tags = {
     Environment = local.env

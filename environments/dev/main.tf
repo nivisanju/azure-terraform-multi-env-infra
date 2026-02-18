@@ -6,11 +6,11 @@ resource "azurerm_resource_group" "this" {
 }
 
 module "vnet" {
-  source              = "../../modules/vnet"
-  resource_group_name = azurerm_resource_group.this.name
-  location            = var.location
-  vnet_name           = "vnet-${local.name_prefix}-hub-01"
-  address_space       = var.vnet_address_space
+  source                 = "../../modules/vnet"
+  resource_group_name    = azurerm_resource_group.this.name
+  location               = var.location
+  vnet_name              = "vnet-${local.name_prefix}-hub-01"
+  address_space          = var.vnet_address_space
   enable_ddos_protection = false
   create_nsgs            = true
   create_route_tables    = false

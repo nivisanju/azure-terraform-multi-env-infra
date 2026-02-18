@@ -92,14 +92,14 @@ terraform/          @devops-team
 ### 6. Repository Settings
 
 **General**
-- ✓ Allow auto-merge (squash)
-- ✓ Allow forking: Unchecked (for private repos)
-- ✓ Auto-delete head branches
+- Allow auto-merge (squash)
+- Allow forking: Unchecked (for private repos)
+- Auto-delete head branches
 
 **Security & Analysis**
-- ✓ Enable Dependabot alerts
-- ✓ Enable Dependabot security updates
-- ✓ Enable code scanning
+- Enable Dependabot alerts
+- Enable Dependabot security updates
+- Enable code scanning
 
 **Deploy keys** (Optional)
 - Add any deployment keys if needed for other services
@@ -308,10 +308,10 @@ Create GitHub Project for infrastructure management:
 
 ```
 Columns:
-- 📋 Backlog
-- 🔄 In Progress
-- 🧪 Testing
-- ✅ Done
+- Backlog
+- In Progress
+- Testing
+- Done
 
 Issues:
 - New features (databases, load balancers)
