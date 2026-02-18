@@ -135,8 +135,10 @@ See [docs/MODULES.md](docs/MODULES.md) for detailed module documentation.
 ## 📝 Output
 **1. App Registration**
 <img width="1444" height="434" alt="image" src="https://github.com/user-attachments/assets/58590566-0ce6-4bcb-8746-b2c917361fc6" />
+
 **2. Statefile Storage Account**
 <img width="2344" height="1120" alt="image" src="https://github.com/user-attachments/assets/dc8d367a-7869-4b3a-99c2-ea3b075e78c2" />
+
 **3. Resources in Azure portal**
 <img width="2882" height="1216" alt="image" src="https://github.com/user-attachments/assets/b52daf6e-3ecb-4b03-8aa1-6b6dcf9ee2f5" />
 
