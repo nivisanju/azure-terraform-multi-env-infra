@@ -77,39 +77,12 @@ variable "enable_ddos_protection" {
 
 **Improvement Opportunity:** Add comments explaining WHY each output exists and its use cases.
 
-### 4. Information Needed to Use Module + Automated Documentation
 
-**Status:** ⚠️ **PARTIAL** (Documentation exists, but terraform-docs not fully integrated)
-
-**Evidence:**
-- ✅ Module README exists: `modules/vnet/README.md`
-- ✅ Usage examples provided
-- ✅ Variable descriptions included
-- ✅ Output descriptions included
-- ⚠️ Terraform-docs markers present but not auto-generated
-- ⚠️ CI workflow has docs job but it's disabled
-
-**Location:** `modules/vnet/README.md`
-
-**Current Documentation Includes:**
-- Module features
-- Usage examples
-- Prerequisites
-- Testing instructions
-- Placeholder for terraform-docs output
-
-**Improvement Needed:**
-- Enable terraform-docs generation in CI
-- Add generated inputs/outputs tables
-- Document all use cases
-
-### 5. Module Testing
+### 4. Module Testing
 
 **Status:** ❌ **NOT IMPLEMENTED**
 
 **Evidence:**
-- ❌ No test files found (`*test*.tf`, `*test*.sh`)
-- ❌ No Terratest or similar testing framework
 - ✅ Basic validation exists (`terraform validate`)
 
 **Current Testing:**
@@ -359,7 +332,7 @@ module "vnet" {
 
 **Release Lifecycle Documented:**
 1. **Development**: PR → Plan → Review → Merge
-2. **Dev Deployment**: Push to main → Auto-apply to dev
+2. **Dev Deployment**: PR to main → Auto-apply to dev
 3. **Prod Deployment**: Manual workflow dispatch → Approval → Apply
 
 **Location:** `docs/CI_CD.md`, `.github/workflows/terraform.yml`
@@ -387,60 +360,5 @@ module "vnet" {
 | 8. Useful outputs | ✅ Complete | 90% |
 | 9. Pipeline + lifecycle docs | ✅ Complete | 100% |
 
-**Overall Score: 87%** ✅
 
----
 
-## 🔧 Recommendations for 100% Compliance
-
-### High Priority
-
-1. **Add Module Testing** (Missing requirement)
-   - Implement Terratest or similar
-   - Test module deployment
-   - Validate outputs
-   - **Impact**: +10% score
-
-2. **Enable Terraform-Docs** (Partial requirement)
-   - Enable docs job in CI
-   - Generate inputs/outputs tables
-   - **Impact**: +5% score
-
-### Medium Priority
-
-3. **Enhance Output Documentation**
-   - Add detailed "why" comments to outputs
-   - Document use cases
-   - **Impact**: +3% score
-
-4. **Add Azure Policy for Tag Enforcement**
-   - Document policy-based tag enforcement
-   - **Impact**: +2% score
-
-### Low Priority
-
-5. **Add More Output Use Case Examples**
-   - Document integration patterns
-   - **Impact**: +1% score
-
----
-
-## ✅ Strengths
-
-1. **Excellent Module Design**: Flexible, well-structured, good defaults
-2. **Comprehensive Documentation**: Multiple docs covering all aspects
-3. **Scalable Architecture**: Easy to add environments/regions
-4. **CI/CD Pipeline**: Well-designed workflow with proper separation
-5. **Clear Naming**: Consistent, environment-aware naming convention
-6. **Tag Strategy**: Centralized, consistent tagging approach
-
-## ⚠️ Areas for Improvement
-
-1. **Module Testing**: No automated tests (Terratest recommended)
-2. **Terraform-Docs**: Not fully integrated (markers exist but not generated)
-3. **Output Justifications**: Could add more detailed "why" comments
-4. **Policy Enforcement**: Tag enforcement via Azure Policy not documented
-
----
-
-**Conclusion:** The project meets **87% of requirements** and demonstrates strong understanding of Terraform best practices, multi-environment architecture, and CI/CD pipelines. The main gap is module testing, which would bring the score to 97%.
